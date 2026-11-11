@@ -1,0 +1,84 @@
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">N</span>NOVA<span class="brand-light">DAW</span></div>
+    <div class="transport">
+      <button id="stop">■</button>
+      <button id="play" class="play-btn">▶</button>
+      <button id="record">●</button>
+      <div class="tempo"><input id="bpm" type="number" value="140" min="40" max="300"><span>BPM</span></div>
+      <div class="meter">4/4</div>
+    </div>
+    <div class="top-actions">
+      <span id="status">READY</span>
+      <button id="undo">↶</button>
+      <button id="redo">↷</button>
+      <button id="save">SAVE</button>
+      <button id="export">EXPORT</button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="sidebar">
+      <div class="side-heading">LIBRARY</div>
+      <div class="library-item active">▦　Arrangement</div>
+      <div class="library-item">◉　Samples</div>
+      <div class="library-item">◈　Instruments</div>
+      <div class="library-item">▤　Presets</div>
+      <div class="library-item">◷　Recent</div>
+      <div class="side-heading library-heading">PROJECT</div>
+      <div class="library-item">＋　Add Track</div>
+      <div class="library-item">▧　My Projects</div>
+      <div class="sidebar-bottom">
+        <span class="online-dot"></span> AUDIO ENGINE READY
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">WORKSPACE / 01</div>
+          <h2>Arrangement</h2>
+        </div>
+        <div class="section-actions">
+          <button id="addTrack">＋ TRACK</button>
+          <button id="addClip">＋ CLIP</button>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="track-label-space"></div>
+        <div class="ruler" id="ruler"></div>
+      </div>
+      <div class="playlist" id="playlist">
+        <div class="playhead" id="playhead"></div>
+      </div>
+
+      <div class="bottom-panel">
+        <div class="panel-tabs">
+          <button class="tab active" data-tab="rack">CHANNEL RACK</button>
+          <button class="tab" data-tab="piano">PIANO ROLL</button>
+          <button class="tab" data-tab="mixer">MIXER</button>
+          <span class="panel-hint">NOVA / PRODUCTION</span>
+        </div>
+        <div id="rackPanel" class="panel-content">
+          <div class="rack-toolbar">
+            <div><span class="eyebrow">SEQUENCER</span><h3>Pattern 01</h3></div>
+            <button id="addChannel">＋ CHANNEL</button>
+          </div>
+          <div id="channelRack"></div>
+        </div>
+        <div id="pianoPanel" class="panel-content hidden">
+          <div class="rack-toolbar">
+            <div><span class="eyebrow">MIDI EDITOR</span><h3>Piano Roll</h3></div>
+            <button id="addNote">＋ NOTE</button>
+          </div>
+          <div id="pianoRoll"></div>
+        </div>
+        <div id="mixerPanel" class="panel-content hidden">
+          <div class="rack-toolbar"><div><span class="eyebrow">AUDIO ROUTING</span><h3>Mixer</h3></div></div>
+          <div id="mixer"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
