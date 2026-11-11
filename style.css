@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg:#101214;
+  --panel:#171a1d;
+  --panel2:#1d2125;
+  --line:#292e33;
+  --text:#e9edef;
+  --muted:#737e85;
+  --green:#b7f36b;
+  --cyan:#65d8db;
+}
+
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Manrope,sans-serif;
+  font-size:13px;
+}
+button,input { font:inherit; }
+button {
+  color:var(--text);
+  background:#252a2f;
+  border:1px solid var(--line);
+  padding:8px 13px;
+  border-radius:5px;
+  cursor:pointer;
+  transition:.15s;
+}
+button:hover { border-color:var(--green); color:var(--green); }
+.topbar {
+  height:66px;
+  background:#15181b;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  gap:15px;
+}
+.brand {
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:2px;
+  white-space:nowrap;
+}
+.brand-mark {
+  display:inline-grid;
+  place-items:center;
+  width:30px;height:30px;
+  margin-right:9px;
+  background:var(--green);
+  color:#101214;
+  border-radius:7px;
+}
+.brand-light { color:var(--muted); margin-left:5px; }
+.transport,.top-actions { display:flex; align-items:center; gap:9px; }
+.play-btn {
+  background:var(--green);
+  color:#101214;
+  border-color:var(--green);
+  font-weight:bold;
+}
+.tempo,.meter {
+  background:var(--panel2);
+  border:1px solid var(--line);
+  border-radius:5px;
+  padding:7px 10px;
+  font-family:'DM Mono';
+}
+.tempo input {
+  width:38px;
+  background:transparent;
+  color:white;
+  border:0;
+  outline:0;
+}
+.tempo span { color:var(--muted); font-size:10px; }
+#status {
+  font:10px 'DM Mono';
+  color:var(--green);
+  letter-spacing:1px;
+}
+#save { color:var(--green); }
+.workspace { display:flex; height:calc(100vh - 66px); min-height:600px; }
+.sidebar {
+  width:205px;
+  flex-shrink:0;
+  background:#15181b;
+  border-right:1px solid var(--line);
+  padding:23px 12px;
+  position:relative;
+}
+.side-heading,.eyebrow {
+  color:var(--muted);
+  font:10px 'DM Mono';
+  letter-spacing:1.5px;
+}
+.side-heading { padding:0 10px 12px; }
+.library-item {
+  padding:11px 10px;
+  border-radius:5px;
+  color:#aab2b7;
+  cursor:pointer;
+  margin-bottom:3px;
+}
+.library-item:hover,.library-item.active {
+  background:#252b2e;
+  color:var(--green);
+}
+.library-heading { margin-top:34px; }
+.sidebar-bottom {
+  position:absolute;
+  bottom:20px;
+  left:20px;
+  font:9px 'DM Mono';
+  color:var(--muted);
+}
+.online-dot {
+  display:inline-block;
+  background:var(--green);
+  width:7px;height:7px;
+  border-radius:50%;
+  margin-right:7px;
+}
+.main {
+  min-width:0;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  padding:22px;
+  overflow:hidden;
+}
+.section-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+h2 { margin:5px 0 0; font-size:21px; }
+h3 { margin:4px 0 0; font-size:16px; }
+.section-actions { display:flex; gap:8px; }
+#addTrack,#addChannel { color:var(--green); }
+.timeline {
+  display:flex;
+  height:34px;
+  border-bottom:1px solid var(--line);
+}
+.track-label-space { width:145px; flex-shrink:0; }
+.ruler {
+  flex:1;
+  display:grid;
+  grid-template-columns:repeat(16,1fr);
+  color:var(--muted);
+  font:10px 'DM Mono';
+}
+.ruler span { border-left:1px solid var(--line); padding:8px 5px; }
+.playlist {
+  position:relative;
+  overflow:auto;
+  flex:1;
+  min-height:150px;
+  background:#131619;
+}
+.track-row {
+  display:flex;
+  height:59px;
+  border-bottom:1px solid #252a2e;
+  min-width:900px;
+}
+.track-info {
+  width:145px;
+  flex-shrink:0;
+  background:#191d20;
+  border-right:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  padding:0 10px;
+  gap:8px;
+}
+.track-color { width:4px; height:28px; border-radius:3px; }
+.track-name { flex:1; font-size:11px; overflow:hidden; }
+.track-buttons { display:flex; gap:3px; }
+.track-buttons button {
+  padding:3px 5px;
+  font-size:9px;
+}
+.track-buttons button.active { color:var(--green); }
+.track-lane {
+  flex:1;
+  position:relative;
+  min-width:720px;
+  background-image:linear-gradient(to right,#252a2e 1px,transparent 1px);
+  background-size:calc(100% / 16) 100%;
+}
+.clip {
+  position:absolute;
+  height:43px;
+  top:7px;
+  border-radius:4px;
+  padding:6px 9px;
+  font-size:10px;
+  font-weight:700;
+  cursor:grab;
+  overflow:hidden;
+  border-left:3px solid rgba(255,255,255,.5);
+  user-select:none;
+}
+.clip:active { cursor:grabbing; }
+.clip small { display:block; opacity:.65; font-size:8px; margin-top:3px; }
+.playhead {
+  position:absolute;
+  top:0;bottom:0;
+  left:145px;
+  width:1px;
+  background:var(--green);
+  z-index:5;
+  pointer-events:none;
+  box-shadow:0 0 8px var(--green);
+}
+.bottom-panel {
+  height:330px;
+  flex-shrink:0;
+  margin-top:17px;
+  background:#171a1d;
+  border:1px solid var(--line);
+  border-radius:7px;
+  overflow:auto;
+}
+.panel-tabs {
+  height:43px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  padding:0 12px;
+  border-bottom:1px solid var(--line);
+}
+.tab { background:transparent; border:0; font-size:10px; color:var(--muted); }
+.tab.active { color:var(--green); border-bottom:2px solid var(--green); border-radius:0; }
+.panel-hint { margin-left:auto; color:var(--muted); font:9px 'DM Mono'; }
+.panel-content { padding:13px; }
+.hidden { display:none; }
+.rack-toolbar { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.channel {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:43px;
+  border-bottom:1px solid var(--line);
+}
+.channel-label { width:100px; font-size:11px; }
+.steps { display:flex; gap:5px; flex:1; }
+.step {
+  flex:1;
+  max-width:34px;
+  height:24px;
+  background:#292e33;
+  border:1px solid #343b40;
+  border-radius:3px;
+  padding:0;
+}
+.step.on { background:var(--green); border-color:var(--green); }
+.step:nth-child(4n+1) { margin-left:5px; }
+.channel-controls { display:flex; gap:5px; }
+.channel-controls button { font-size:9px; padding:4px 7px; }
+#pianoRoll {
+  height:225px;
+  position:relative;
+  overflow:hidden;
+  background:#121619;
+  border:1px solid var(--line);
+}
+.piano-grid {
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(to right,#30373c 1px,transparent 1px),
+    linear-gradient(to bottom,#292f34 1px,transparent 1px);
+  background-size:calc(100% / 16) 100%,100% 14px;
+}
+.piano-note {
+  position:absolute;
+  height:12px;
+  background:var(--cyan);
+  border-radius:2px;
+  cursor:move;
+}
+#mixer { display:flex; gap:12px; height:225px; align-items:stretch; }
+.mix-channel {
+  flex:1;
+  background:#202529;
+  border-radius:5px;
+  padding:12px 5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+}
+.meter-bar {
+  width:9px;
+  flex:1;
+  margin:10px;
+  background:linear-gradient(to top,var(--green),#3c8d9a);
+  border-radius:3px;
+}
+.mix-channel span { font:9px 'DM Mono'; color:#aeb8bd; }
+@media(max-width:800px) {
+  .sidebar { display:none; }
+  .topbar { padding:0 9px; }
+  .brand { font-size:14px; }
+  .top-actions { gap:3px; }
+  .top-actions button { padding:6px; }
+  #status { display:none; }
+  .main { padding:12px; }
+}
